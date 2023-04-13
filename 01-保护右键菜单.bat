@@ -15,33 +15,6 @@ for /f "tokens=1* delims= " %%a in ('whoami /user /nh') do set "userSID=%%b"
 REM =======================================================================================================================
 echo off > Registry-Menu-Lock.txt
 
-REM 用户部分
-REM 文件右键，针对所有类型文件
-echo HKEY_USERS\%userSID%_Classes\*\shell [8 19] >> Registry-Menu-Lock.txt
-echo HKEY_USERS\%userSID%_Classes\*\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM 快捷方式右键，OneDrive 钟爱
-echo HKEY_USERS\%userSID%_Classes\lnkfile\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM URL 快捷方式右键，OneDrive 钟爱
-echo HKEY_USERS\%userSID%_Classes\IE.AssocFile.URL\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM 目录右键
-echo HKEY_USERS\%userSID%_Classes\Directory\shell [8 19] >> Registry-Menu-Lock.txt
-echo HKEY_USERS\%userSID%_Classes\Directory\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM 目录背景右键
-echo HKEY_USERS\%userSID%_Classes\Directory\Background\shell [8 19] >> Registry-Menu-Lock.txt
-echo HKEY_USERS\%userSID%_Classes\Directory\Background\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM 文件夹扩展菜单
-echo HKEY_USERS\%userSID%_Classes\Folder\shell [8 19] >> Registry-Menu-Lock.txt
-echo HKEY_USERS\%userSID%_Classes\Folder\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM 桌面右键
-echo HKEY_USERS\%userSID%_Classes\DesktopBackground\Shell [8 19] >> Registry-Menu-Lock.txt
-echo HKEY_USERS\%userSID%_Classes\DesktopBackground\Shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM 所有对象
-echo HKEY_USERS\%userSID%_Classes\AllFilesystemObjects\shell [8 19] >> Registry-Menu-Lock.txt
-echo HKEY_USERS\%userSID%_Classes\AllFilesystemObjects\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-REM 磁盘右键
-echo HKEY_USERS\%userSID%_Classes\Drive\shell [8 19] >> Registry-Menu-Lock.txt
-echo HKEY_USERS\%userSID%_Classes\Drive\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
-
 REM 系统部分
 REM 文件右键，针对所有类型文件
 echo HKEY_CLASSES_ROOT\*\shell [8 19] >> Registry-Menu-Lock.txt
@@ -69,35 +42,22 @@ REM 磁盘右键
 echo HKEY_CLASSES_ROOT\Drive\shell [8 19] >> Registry-Menu-Lock.txt
 echo HKEY_CLASSES_ROOT\Drive\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
 
-REM =======================================================================================================================
-echo off > Registry-Menu-Unlock.txt
-
 REM 用户部分
 REM 文件右键，针对所有类型文件
-echo HKEY_USERS\%userSID%_Classes\*\shell [1 5 8 17] >> Registry-Menu-Unlock.txt
-echo HKEY_USERS\%userSID%_Classes\*\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
+echo HKEY_USERS\%userSID%_Classes\*\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
 REM 快捷方式右键，OneDrive 钟爱
-echo HKEY_USERS\%userSID%_Classes\lnkfile\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
+echo HKEY_USERS\%userSID%_Classes\lnkfile\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
 REM URL 快捷方式右键，OneDrive 钟爱
-echo HKEY_USERS\%userSID%_Classes\IE.AssocFile.URL\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
+echo HKEY_USERS\%userSID%_Classes\IE.AssocFile.URL\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
 REM 目录右键
-echo HKEY_USERS\%userSID%_Classes\Directory\shell [1 5 8 17] >> Registry-Menu-Unlock.txt
-echo HKEY_USERS\%userSID%_Classes\Directory\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
+echo HKEY_USERS\%userSID%_Classes\Directory\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
 REM 目录背景右键
-echo HKEY_USERS\%userSID%_Classes\Directory\Background\shell [1 5 8 17] >> Registry-Menu-Unlock.txt
-echo HKEY_USERS\%userSID%_Classes\Directory\Background\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
+echo HKEY_USERS\%userSID%_Classes\Directory\Background\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
 REM 文件夹扩展菜单
-echo HKEY_USERS\%userSID%_Classes\Folder\shell [1 5 8 17] >> Registry-Menu-Unlock.txt
-echo HKEY_USERS\%userSID%_Classes\Folder\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
-REM 桌面右键
-echo HKEY_USERS\%userSID%_Classes\DesktopBackground\Shell [1 5 8 17] >> Registry-Menu-Unlock.txt
-echo HKEY_USERS\%userSID%_Classes\DesktopBackground\Shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
-REM 所有对象
-echo HKEY_USERS\%userSID%_Classes\AllFilesystemObjects\shell [1 5 8 17] >> Registry-Menu-Unlock.txt
-echo HKEY_USERS\%userSID%_Classes\AllFilesystemObjects\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
-REM 磁盘右键
-echo HKEY_USERS\%userSID%_Classes\Drive\shell [1 5 8 17] >> Registry-Menu-Unlock.txt
-echo HKEY_USERS\%userSID%_Classes\Drive\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
+echo HKEY_USERS\%userSID%_Classes\Folder\shellex\ContextMenuHandlers [8 19] >> Registry-Menu-Lock.txt
+
+REM =======================================================================================================================
+echo off > Registry-Menu-Unlock.txt
 
 REM 系统部分
 REM 文件右键，针对所有类型文件
@@ -125,6 +85,20 @@ echo HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers [1 5 8 1
 REM 磁盘右键
 echo HKEY_CLASSES_ROOT\Drive\shell [1 5 8 17] >> Registry-Menu-Unlock.txt
 echo HKEY_CLASSES_ROOT\Drive\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Unlock.txt
+
+REM 用户部分
+REM 文件右键，针对所有类型文件
+echo HKEY_USERS\%userSID%_Classes\*\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Lock.txt
+REM 快捷方式右键，OneDrive 钟爱
+echo HKEY_USERS\%userSID%_Classes\lnkfile\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Lock.txt
+REM URL 快捷方式右键，OneDrive 钟爱
+echo HKEY_USERS\%userSID%_Classes\IE.AssocFile.URL\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Lock.txt
+REM 目录右键
+echo HKEY_USERS\%userSID%_Classes\Directory\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Lock.txt
+REM 目录背景右键
+echo HKEY_USERS\%userSID%_Classes\Directory\Background\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Lock.txt
+REM 文件夹扩展菜单
+echo HKEY_USERS\%userSID%_Classes\Folder\shellex\ContextMenuHandlers [1 5 8 17] >> Registry-Menu-Lock.txt
 
 REM =======================================================================================================================
 
