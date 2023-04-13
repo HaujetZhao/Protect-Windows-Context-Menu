@@ -1,0 +1,42 @@
+print               打印
+PlayTo              播放到设备
+Play                用windows media player播放
+Enqueue             添加到windows media player播放列表
+ShellCreateVideo    创建新视频
+printto             打印到
+
+runasuser           以其他用户身份运行
+Compatibility       兼容性疑难解答
+PintoStartScreen    固定到开始屏幕
+
+EPP                 Microsoft defender. 
+Sharing             授予访问权限授予访问权限
+WorkFolders         工作文件夹
+
+文件夹：
+HKEY_CLASSES_ROOT\Folder\shell\opennewprocess 在新进程中，打开
+HKEY_CLASSES_ROOT\Folder\shell\opennewtab 在新标签页中打开
+HKEY_CLASSES_ROOT\Folder\shell\opennewwindow 在新窗口中打开
+HKEY_CLASSES_ROOT\Folder\shell\pintohome 固定到快速访问
+HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHandlers\Library Location  包含到库中
+
+
+Powershell
+HKEY_CLASSES_ROOT\Directory\Background\shell\Powershell
+HKEY_CLASSES_ROOT\Directory\shell\Powershell
+HKEY_CLASSES_ROOT\Drive\shell\Powershell
+    Icon = REG_SZ "C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell.exe,0"
+    MUIVerb = REG_SZ "打开 Powershell"
+
+cmd
+HKEY_CLASSES_ROOT\Directory\Background\shell\cmd
+HKEY_CLASSES_ROOT\Directory\shell\cmd
+HKEY_CLASSES_ROOT\Drive\shell\cmd
+    Icon = REG_SZ "C:\Windows\System32\cmd.exe ,0"
+    MUIVerb = REG_SZ "打开 CMD"
+
+
+桌面背景
+HKEY_CLASSES_ROOT\DesktopBackground\Shell\Display   显示设置
+HKEY_CLASSES_ROOT\DesktopBackground\Shell\Personalize   个性化
+HKEY_CLASSES_ROOT\DesktopBackground\shellex\ContextMenuHandlers\DesktopSlideshow    下一个桌面背景

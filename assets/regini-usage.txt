@@ -1,0 +1,73 @@
+; Access Control List (ACL) 权限值：
+;     1  - Administrators Full Access
+;     2  - Administrators Read Access
+;     3  - Administrators Read and Write Access
+;     4  - Administrators Read, Write and Delete Access
+;
+;     5  - Creator Full Access
+;     6  - Creator Read and Write Access
+;
+;     7  - World Full Access
+;     8  - World Read Access
+;     9  - World Read and Write Access
+;     10 - World Read, Write and Delete Access
+;
+;     11 - Power Users Full Access
+;     12 - Power Users Read and Write Access
+;     13 - Power Users Read, Write and Delete Access
+;
+;     14 - System Operators Full Access
+;     15 - System Operators Read and Write Access
+;     16 - System Operators Read, Write and Delete Access
+;
+;     17 - System Full Access
+;     18 - System Read and Write Access
+;     19 - System Read Access
+;
+;     20 - Administrators Read, Write and Execute Access
+;
+;     21 - Interactive User Full Access
+;     22 - Interactive User Read and Write Access
+;     23 - Interactive User Read, Write and Delete Access
+
+
+
+
+; 键值的格式有：
+;     REG_SZ text
+;     REG_EXPAND_SZ text
+;     REG_MULTI_SZ "string1" "str""ing2" ...
+;     REG_DATE mm/dd/yyyy HH:MM DayOfWeek
+;     REG_DWORD numberDWORD
+;     REG_BINARY numberOfBytes numberDWORD(s)...
+;     REG_NONE (same format as REG_BINARY)
+;     REG_RESOURCE_LIST (same format as REG_BINARY)
+;     REG_RESOURCE_REQUIREMENTS (same format as REG_BINARY)
+;     REG_RESOURCE_REQUIREMENTS_LIST (same format as REG_BINARY)
+;     REG_FULL_RESOURCE_DESCRIPTOR (same format as REG_BINARY)
+;     REG_QWORD numberQWORD
+;     REG_MULTISZ_FILE fileName
+;     REG_BINARYFILE fileName
+; 如果没有指定格式，默认为 REG_SZ
+
+
+
+
+; 半角分号后的内容表示单行注释，这就是一句注释
+; 语法是多行的，以下为一个示例：
+;     新建一个项「HKEY_LOCAL_MACHINE\SOFTWARE\MyWorld」，
+;     用 Access Control List (ACL) 设置权限为 [1 5 7 11 14 17 20 21]
+;     [DELETE] 表示删除
+;     设设置它的4个值，语法是「value = type data」
+;     默认值语法是「= type data」或者「@ = type data」
+;     在 Windows XP 和 Windows Server 2003 中，必须用引号括住 value
+;     空格缩进只是为了美观
+
+HKEY_LOCAL_MACHINE\SOFTWARE\MyWorld [1 5 7 11 14 17 20 21]
+    = REG_DWORD 1
+    ConfigVer 12 = REG_DWORD 2 
+    "AUOptions"= REG_DWORD 4 
+    "ScheduledInstallDay"= REG_DWORD 0 
+    "ScheduledInstallTime"= REG_DWORD 1
+
+HKEY_LOCAL_MACHINE\SOFTWARE\MyWorld2 [8]
